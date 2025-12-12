@@ -5,7 +5,7 @@ export const content = {
     menuItems: ["Product", "Dashboard", "Research", "For Clinics", "About", "Contact"],
     ctaPrimary: "Book a demo",
     ctaSecondary: "Login",
-    dashboardUrl: "https://your-dashboard-url.com"
+    dashboardUrl: "https://radiomed-frontend.wonderfulglacier-fa34419e.australiaeast.azurecontainerapps.io"
   },
   hero: {
     badge: "AI-First Radiology Platform",
