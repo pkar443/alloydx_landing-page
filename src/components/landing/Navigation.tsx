@@ -7,6 +7,8 @@ import { motion, AnimatePresence } from "framer-motion";
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const dashboardUrl =
+    import.meta.env.VITE_RADIOMED_URL || content.nav.dashboardUrl || "#";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,11 +59,10 @@ export function Navigation() {
 
           {/* Desktop CTAs */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Button
-              variant="ghost"
-              className="text-slate-300 hover:text-white hover:bg-slate-800"
-            >
-              {content.nav.ctaSecondary}
+            <Button variant="ghost" className="text-slate-300 hover:text-white hover:bg-slate-800" asChild>
+              <a href={dashboardUrl} target="_blank" rel="noreferrer">
+                {content.nav.ctaSecondary}
+              </a>
             </Button>
             <Button className="bg-cyan-500 hover:bg-cyan-600 text-white">
               {content.nav.ctaPrimary}
@@ -104,8 +105,11 @@ export function Navigation() {
                 <Button
                   variant="outline"
                   className="w-full border-slate-700 text-slate-300 hover:text-white hover:bg-slate-800"
+                  asChild
                 >
-                  {content.nav.ctaSecondary}
+                  <a href={dashboardUrl} target="_blank" rel="noreferrer">
+                    {content.nav.ctaSecondary}
+                  </a>
                 </Button>
                 <Button className="w-full bg-cyan-500 hover:bg-cyan-600 text-white">
                   {content.nav.ctaPrimary}

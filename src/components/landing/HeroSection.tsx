@@ -4,8 +4,18 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { content } from "@/content/landing";
 import { Brain, Eye, Scan } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-const medicalImages = [
+type MedicalImage = {
+  id: string;
+  title: string;
+  modality: string;
+  imageUrl?: string;
+  icon?: LucideIcon;
+  gradient?: string;
+};
+
+const defaultMedicalImages: MedicalImage[] = [
   {
     id: "ct",
     title: "CT Brain Scan",
@@ -30,6 +40,15 @@ const medicalImages = [
 ];
 
 export function HeroSection() {
+  const configuredImages = (content.hero.medicalImages as MedicalImage[] | undefined) ?? [];
+  const medicalImages: MedicalImage[] =
+    configuredImages.length > 0
+      ? configuredImages.map((img) => {
+          const defaults = defaultMedicalImages.find((d) => d.id === img.id) ?? {};
+          return { ...defaults, ...img };
+        })
+      : defaultMedicalImages;
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [showOverlay, setShowOverlay] = useState(false);
@@ -44,7 +63,7 @@ export function HeroSection() {
   }, [isHovered]);
 
   const currentImage = medicalImages[currentIndex];
-  const Icon = currentImage.icon;
+  const Icon: LucideIcon = currentImage.icon || Brain;
 
   return (
     <section className="relative min-h-screen bg-slate-950 overflow-hidden">
@@ -133,12 +152,33 @@ export function HeroSection() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.5 }}
-                  className={`absolute inset-0 bg-gradient-to-br ${currentImage.gradient} flex items-center justify-center`}
+                  className="absolute inset-0 flex items-center justify-center"
                 >
-                  {/* Medical Image Placeholder */}
-                  <div className="relative w-full h-full flex items-center justify-center">
-                    <Icon className="w-48 h-48 text-slate-700" strokeWidth={1} />
-                    
+                  {/* Medical Image */}
+                  <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+                    {currentImage.imageUrl ? (
+                      <img
+                        src={currentImage.imageUrl}
+                        alt={currentImage.title}
+                        className="absolute inset-0 w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-br ${
+                          currentImage.gradient ?? "from-cyan-500/20 to-blue-500/20"
+                        }`}
+                      />
+                    )}
+
+                    {/* Fallback icon if no image */}
+                    {!currentImage.imageUrl && (
+                      <Icon className="w-48 h-48 text-slate-700" strokeWidth={1} />
+                    )}
+
+                    {/* Image overlay gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-slate-950/10 via-slate-950/40 to-slate-950/60" />
+
                     {/* AI Overlay */}
                     <AnimatePresence>
                       {showOverlay && (

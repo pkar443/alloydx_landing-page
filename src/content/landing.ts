@@ -4,14 +4,35 @@ export const content = {
     logo: "AlloyDX",
     menuItems: ["Product", "Dashboard", "Research", "For Clinics", "About", "Contact"],
     ctaPrimary: "Book a demo",
-    ctaSecondary: "View sample report"
+    ctaSecondary: "Login",
+    dashboardUrl: "https://your-dashboard-url.com"
   },
   hero: {
     badge: "AI-First Radiology Platform",
     title: "Read Imaging Faster. More Consistently. With Confidence.",
     subtitle: "AlloyDX helps radiologists and ophthalmologists deliver accurate diagnoses with AI-powered analysis across CT, MRI, X-Ray, OCT, and more.",
     ctaPrimary: "Book a demo",
-    ctaSecondary: "View sample report"
+    ctaSecondary: "View sample report",
+    medicalImages: [
+      {
+        id: "ct",
+        title: "CT Brain Scan",
+        modality: "CT",
+        imageUrl: "/ct.jpeg"
+      },
+      {
+        id: "xray",
+        title: "Chest X-Ray",
+        modality: "X-Ray",
+        imageUrl: "/cxr.jpg"
+      },
+      {
+        id: "oct",
+        title: "OCT Retinal Scan",
+        modality: "OCT",
+        imageUrl: "/oct.jpg"
+      }
+    ]
   },
   modalities: [
     "CT Scan",
@@ -114,22 +135,22 @@ export const content = {
     subtitle: "Our AI models are validated through rigorous clinical studies",
     publications: [
       {
-        title: "Deep Learning for Automated Detection of Intracranial Hemorrhage",
-        journal: "Radiology: Artificial Intelligence",
-        year: "2023",
-        summary: "Our model achieved 96.3% sensitivity and 94.1% specificity in detecting acute hemorrhage on non-contrast CT."
+        title: "Robust Retinal Blood Vessel Segmentation Using Hybrid Active Contour Model",
+        journal: "IET Image Processing",
+        year: "2018",
+        summary: "Our model achieved 97% accuracy in detecting blood vessels."
       },
       {
-        title: "AI-Assisted Diabetic Retinopathy Screening in Primary Care",
-        journal: "JAMA Ophthalmology",
-        year: "2023",
-        summary: "Deployment in 12 clinics showed 89% reduction in time-to-diagnosis with maintained diagnostic accuracy."
-      },
-      {
-        title: "Standardized Lung Nodule Measurement Using Deep Learning",
-        journal: "Journal of Thoracic Imaging",
+        title: "Advancing Ocular Imaging: A hybrid attention mechanism-based U-Net Model for precise segmentation of sub-retinal layers in OCT images",
+        journal: "Bioengineering",
         year: "2024",
-        summary: "AI measurements showed higher inter-reader agreement (ICC 0.94) compared to manual measurements (ICC 0.78)."
+        summary: "Our model achieved 97% of Adjusted Rand Index (ARI), Dice score of 94.99% in segmentation of sub-retinal layers in Optical Coherence Tomography (OCT) images."
+      },
+      {
+        title: "Generalized framework for liquid neural network upon sequential and non-sequential tasks",
+        journal: "Mathematics",
+        year: "2024",
+        summary: "This research introduces a novel approach to neural networks: a Generalized Liquid Neural Network (GLNN) framework applicable for disease classification"
       }
     ]
   },
@@ -157,19 +178,27 @@ export const content = {
     }
   },
   founder: {
-    title: "Built by Clinicians, For Clinicians",
-    name: "Dr. Sarah Chen, MD, PhD",
-    role: "Founder & Chief Medical Officer",
-    bio: "Dr. Chen is a board-certified radiologist and computer scientist who experienced firsthand the challenges of modern radiology workflows. After completing her PhD in medical AI at Stanford, she founded AlloyDX to bring clinically-validated AI tools to everyday practice. The team includes radiologists, ophthalmologists, and AI researchers from leading academic medical centers."
+    title: "Built with clinicians, crafted with innovation.",
+    name: "Dr. Prakash Karn, PhD",
+    role: "Founder & Chief Technical Officer",
+    bio: "Prakash Karn is a medical AI engineer committed to improving patient care through intelligent imaging tools. Motivated by the challenges clinicians face in high-pressure environments, he founded AlloyDx and developed Radiomed to streamline reporting, enhance diagnostic confidence, and bring AI-powered support directly into clinical practice."
+  },
+  academic_advisor: {
+    name: "Associate Professor Waleed Abdula",
+    role: "Academic Advisor, University of Auckland",
+    bio: "Assoc. Professor Waleed Abdulla, a respected researcher at the University of Auckland, brings deep expertise in signal processing, biomedical imaging, and intelligent systems. As Academic Advisor to AlloyDx, he collaborates closely with the team to enhance the scientific foundation and clinical relevance of Radiomed, ensuring the platform reflects the highest standards of research and innovation."
+  },
+  clinical_advisor: {
+    name: "Dr. Dipak Karn, MBBS, MD(Radiologist)",
+    role: "Clinical Advisor, MIHS, Nepal",
+    bio: "Dr. Dipak Karn, is a highly experienced radiologist at MIHS, Nepal, specializing in diagnostic imaging and clinical interpretation. With extensive expertise across CT, MRI, ultrasound, and X-ray modalities, he brings invaluable clinical insight to AlloyDx. As Clinical Advisor, Dr. Karn guides the development of Radiomed to ensure the platform aligns with real-world radiology workflows, enhances diagnostic accuracy, and addresses meaningful clinical challenges"
   },
   security: {
     title: "Security, Privacy & Regulatory",
     points: [
       "HIPAA and GDPR compliant",
-      "SOC 2 Type II certified",
       "End-to-end encryption for all data",
       "De-identification and anonymization built-in",
-      "FDA 510(k) clearance for diagnostic AI algorithms",
       "Regular third-party security audits"
     ]
   },
@@ -197,9 +226,9 @@ export const content = {
       links: ["Privacy Policy", "Terms of Service", "HIPAA Compliance"]
     },
     contact: {
-      email: "hello@alloydx.com",
-      phone: "+1 (555) 123-4567",
-      address: "123 Medical Plaza, San Francisco, CA 94158"
+      email: "prakashkarn45@gmail.com",
+      phone: "+64273794454",
+      address: "46C Burswood Drive 2013 Auckland New Zealand"
     },
     copyright: "© 2024 AlloyDX. All rights reserved."
   }
